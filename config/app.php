@@ -156,6 +156,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * 自动提示插件
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class
+
     ],
 
     /*
