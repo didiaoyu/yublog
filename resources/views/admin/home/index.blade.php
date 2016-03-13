@@ -1,5 +1,13 @@
 @extends("admin.layouts.main")
 
+@section('page_css')
+
+@stop
+
 @section("content")
-    这里是body
+
+@stop
+
+@section('page_script')
+
 @stop

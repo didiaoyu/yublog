@@ -26,10 +26,12 @@ Route::get('/', function () {
 |
 */
 Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
-    Route::get('/', 'Admin\AuthController@showLoginForm');
+    Route::get('/{login?}', 'Admin\AuthController@showLoginForm');
     Route::post('/', 'Admin\AuthController@postLogin');
     Route::get('/logout', 'Admin\AuthController@logout');
     Route::group(['middleware' => 'auth'], function() {
-        Route::get('/home/{index?}', 'HomeController@index');
+        Route::get('/home/{index?}', 'Admin\HomeController@index');
+        Route::get('/user/index', 'Admin\UserController@index');
+        Route::get('/user/userlist', 'Admin\UserController@userList');
     });
 });

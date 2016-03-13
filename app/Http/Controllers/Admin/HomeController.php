@@ -13,6 +13,6 @@ class HomeController extends AdminController
 {
     public function index()
     {
-        view('');
+        return view('admin.home.index');
     }
 }

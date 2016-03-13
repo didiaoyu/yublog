@@ -25,6 +25,9 @@ Purchase: http://wrapbootstrap.com
     <link id="beyond-link" href="/assets/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/admin/css/animate.min.css" rel="stylesheet" />
 
+    <!--Page Related styles-->
+    @yield('page_css')
+
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
     <script src="/assets/admin/js/skins.min.js"></script>
 
@@ -387,102 +390,23 @@ Purchase: http://wrapbootstrap.com
             <ul class="nav sidebar-menu">
                 <!--Dashboard-->
                 <li class="active">
-                    <a href="index.html">
+                    <a href="{{ url('admin/home/index') }}">
                         <i class="menu-icon glyphicon glyphicon-home"></i>
-                        <span class="menu-text"> Dashboard </span>
-                    </a>
-                </li>
-                <!--Databoxes-->
-                <li>
-                    <a href="databoxes.html">
-                        <i class="menu-icon glyphicon glyphicon-tasks"></i>
-                        <span class="menu-text"> Data Boxes </span>
-                    </a>
-                </li>
-                <!--Widgets-->
-                <li>
-                    <a href="widgets.html">
-                        <i class="menu-icon fa fa-th"></i>
-                        <span class="menu-text"> Widgets </span>
+                        <span class="menu-text"> 首页 </span>
                     </a>
                 </li>
                 <!--UI Elements-->
                 <li>
                     <a href="#" class="menu-dropdown">
                         <i class="menu-icon fa fa-desktop"></i>
-                        <span class="menu-text"> Elements </span>
+                        <span class="menu-text"> 用户管理 </span>
                         <i class="menu-expand"></i>
                     </a>
 
                     <ul class="submenu">
                         <li>
-                            <a href="elements.html">
-                                <span class="menu-text">Basic Elements</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="menu-dropdown">
-                                    <span class="menu-text">
-                                        Icons
-                                    </span>
-                                <i class="menu-expand"></i>
-                            </a>
-
-                            <ul class="submenu">
-                                <li>
-                                    <a href="font-awesome.html">
-                                        <i class="menu-icon fa fa-rocket"></i>
-                                        <span class="menu-text">Font Awesome</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="glyph-icons.html">
-                                        <i class="menu-icon glyphicon glyphicon-stats"></i>
-                                        <span class="menu-text">Glyph Icons</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="typicon.html">
-                                        <i class="menu-icon typcn typcn-location-outline"></i>
-                                        <span class="menu-text"> Typicons</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="weather-icons.html">
-                                        <i class="menu-icon wi-day-snow"></i>
-                                        <span class="menu-text">Weather Icons</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="tabs.html">
-                                <span class="menu-text">Tabs & Accordions</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="alerts.html">
-                                <span class="menu-text">Alerts & Tooltips</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="modals.html">
-                                <span class="menu-text">Modals & Wells</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="buttons.html">
-                                <span class="menu-text">Buttons</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="nestable-list.html">
-                                <span class="menu-text"> Nestable List</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="treeview.html">
-                                <span class="menu-text">Treeview</span>
+                            <a href="{{ url('admin/user/index') }}">
+                                <span class="menu-text">用户列表</span>
                             </a>
                         </li>
                     </ul>
@@ -493,33 +417,7 @@ Purchase: http://wrapbootstrap.com
         <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
-            <!-- Page Breadcrumb -->
-            <div class="page-header page-breadcrumbs">
-                <ul class="breadcrumb">
-                    <li>
-                        <i class="fa fa-home"></i>
-                        <a href="#">Home</a>
-                    </li>
-                    <li class="active">Dashboard</li>
-                </ul>
-                <div class="header-buttons">
-                    <a class="sidebar-toggler" href="#">
-                        <i class="fa fa-arrows-h"></i>
-                    </a>
-                    <a class="refresh" id="refresh-toggler" href="">
-                        <i class="glyphicon glyphicon-refresh"></i>
-                    </a>
-                    <a class="fullscreen" id="fullscreen-toggler" href="#">
-                        <i class="glyphicon glyphicon-fullscreen"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- /Page Breadcrumb -->
-            <!-- Page Body -->
-            <div class="page-body">
-                @yield('content')
-            </div>
-            <!-- /Page Body -->
+            @yield('content')
         </div>
         <!-- /Page Content -->
     </div>
@@ -536,6 +434,7 @@ Purchase: http://wrapbootstrap.com
 <script src="/assets/admin/js/beyond.min.js"></script>
 
 <!--Page Related Scripts-->
+@yield('page_script')
 </body>
 <!--  /Body -->
 </html>
