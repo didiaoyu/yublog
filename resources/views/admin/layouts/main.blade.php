@@ -15,31 +15,31 @@ Purchase: http://wrapbootstrap.com
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="/assets/admin/img/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/vendor/img/favicon.png" type="image/x-icon">
 
     <!--Basic Styles-->
-    <link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/assets/vendor/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/assets/vendor/css/font-awesome.min.css" rel="stylesheet" />
 
     <!--Beyond styles-->
-    <link id="beyond-link" href="/assets/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/admin/css/animate.min.css" rel="stylesheet" />
+    <link id="beyond-link" href="/assets/vendor/css/beyond.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/vendor/css/animate.min.css" rel="stylesheet" />
 
     <!--Page Related styles-->
     @yield('page_css')
 
     <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
-    <script src="/assets/admin/js/skins.min.js"></script>
+    <script src="/assets/vendor/js/skins.min.js"></script>
 
     <!--IE8兼容处理 禁用IE兼容模式-->
     <!--[if lt IE 9]>
-    <script src="/assets/admin/js/ieonly/html5shiv.js"></script>
+    <script src="/assets/vendor/js/ieonly/html5shiv.js"></script>
     <![endif]-->
     <!--[if lt IE 9]>
-    <script src="/assets/admin/js/ieonly/respond.js"></script>
+    <script src="/assets/vendor/js/ieonly/respond.js"></script>
     <![endif]-->
     <!--[if lt IE 9]>
-    <script src="/assets/admin/js/ieonly/excanvas.js"></script>
+    <script src="/assets/vendor/js/ieonly/excanvas.js"></script>
     <![endif]-->
 </head>
 <!-- /Head -->
@@ -76,7 +76,7 @@ Purchase: http://wrapbootstrap.com
             <div class="navbar-header pull-left">
                 <a href="#" class="navbar-brand">
                     <small>
-                        <img src="/assets/admin/img/logo.png" alt="" />
+                        <img src="/assets/vendor/img/logo.png" alt="" />
                     </small>
                 </a>
             </div>
@@ -182,7 +182,7 @@ Purchase: http://wrapbootstrap.com
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
                                 <li>
                                     <a href="#">
-                                        <img src="/assets/admin/img/avatars/divyia.jpg" class="message-avatar" alt="Divyia Austin">
+                                        <img src="/assets/vendor/img/avatars/divyia.jpg" class="message-avatar" alt="Divyia Austin">
                                         <div class="message">
                                                 <span class="message-sender">
                                                     Divyia Austin
@@ -201,7 +201,7 @@ Purchase: http://wrapbootstrap.com
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="/assets/admin/img/avatars/bing.png" class="message-avatar" alt="Microsoft Bing">
+                                        <img src="/assets/vendor/img/avatars/bing.png" class="message-avatar" alt="Microsoft Bing">
                                         <div class="message">
                                                 <span class="message-sender">
                                                     Bing.com
@@ -220,7 +220,7 @@ Purchase: http://wrapbootstrap.com
                                 </li>
                                 <li>
                                     <a href="#">
-                                        <img src="/assets/admin/img/avatars/adam-jansen.jpg" class="message-avatar" alt="Divyia Austin">
+                                        <img src="/assets/vendor/img/avatars/adam-jansen.jpg" class="message-avatar" alt="Divyia Austin">
                                         <div class="message">
                                                 <span class="message-sender">
                                                     Nicolas
@@ -312,7 +312,7 @@ Purchase: http://wrapbootstrap.com
                         <li>
                             <a class="login-area dropdown-toggle" data-toggle="dropdown">
                                 <div class="avatar" title="View your public profile">
-                                    <img src="/assets/admin/img/avatars/adam-jansen.jpg">
+                                    <img src="/assets/vendor/img/avatars/adam-jansen.jpg">
                                 </div>
                                 <section>
                                     <h2><span class="profile"><span>{{ Auth::user()->name }}</span></span></h2>
@@ -325,7 +325,7 @@ Purchase: http://wrapbootstrap.com
                                 <!--Avatar Area-->
                                 {{--<li>
                                     <div class="avatar-area">
-                                        <img src="/assets/admin/img/avatars/adam-jansen.jpg" class="avatar">
+                                        <img src="/assets/vendor/img/avatars/adam-jansen.jpg" class="avatar">
                                         <span class="caption">Change Photo</span>
                                     </div>
                                 </li>--}}
@@ -337,18 +337,18 @@ Purchase: http://wrapbootstrap.com
                                 <!--Theme Selector Area-->
                                 <li class="theme-area">
                                     <ul class="colorpicker" id="skin-changer">
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="/assets/admin/css/skins/blue.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#2dc3e8;" rel="/assets/admin/css/skins/azure.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#03B3B2;" rel="/assets/admin/css/skins/teal.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#53a93f;" rel="/assets/admin/css/skins/green.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#FF8F32;" rel="/assets/admin/css/skins/orange.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#cc324b;" rel="/assets/admin/css/skins/pink.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#AC193D;" rel="/assets/admin/css/skins/darkred.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#8C0095;" rel="/assets/admin/css/skins/purple.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#0072C6;" rel="/assets/admin/css/skins/darkblue.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#585858;" rel="/assets/admin/css/skins/gray.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#474544;" rel="/assets/admin/css/skins/black.min.css"></a></li>
-                                        <li><a class="colorpick-btn" href="#" style="background-color:#001940;" rel="/assets/admin/css/skins/deepblue.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="/assets/vendor/css/skins/blue.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#2dc3e8;" rel="/assets/vendor/css/skins/azure.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#03B3B2;" rel="/assets/vendor/css/skins/teal.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#53a93f;" rel="/assets/vendor/css/skins/green.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#FF8F32;" rel="/assets/vendor/css/skins/orange.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#cc324b;" rel="/assets/vendor/css/skins/pink.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#AC193D;" rel="/assets/vendor/css/skins/darkred.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#8C0095;" rel="/assets/vendor/css/skins/purple.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#0072C6;" rel="/assets/vendor/css/skins/darkblue.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#585858;" rel="/assets/vendor/css/skins/gray.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#474544;" rel="/assets/vendor/css/skins/black.min.css"></a></li>
+                                        <li><a class="colorpick-btn" href="#" style="background-color:#001940;" rel="/assets/vendor/css/skins/deepblue.min.css"></a></li>
                                     </ul>
                                 </li>
                                 <!--/Theme Selector Area-->
@@ -427,11 +427,11 @@ Purchase: http://wrapbootstrap.com
 </div>
 
 <!--Basic Scripts-->
-<script src="/assets/admin/js/jquery-2.0.3.min.js"></script>
-<script src="/assets/admin/js/bootstrap.min.js"></script>
+<script src="/assets/vendor/js/jquery-2.0.3.min.js"></script>
+<script src="/assets/vendor/js/bootstrap.min.js"></script>
 
 <!--Beyond Scripts-->
-<script src="/assets/admin/js/beyond.min.js"></script>
+<script src="/assets/vendor/js/beyond.min.js"></script>
 
 <!--Page Related Scripts-->
 @yield('page_script')

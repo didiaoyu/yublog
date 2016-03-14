@@ -1,7 +1,7 @@
 @extends("admin.layouts.main")
 
 @section('page_css')
-    <link href="/assets/admin/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <link href="/assets/vendor/css/dataTables.bootstrap.css" rel="stylesheet" />
 @stop
 
 @section("content")
@@ -86,11 +86,12 @@
 @stop
 
 @section('page_script')
-    <script src="/assets/admin/js/datatable/jquery.dataTables.min.js"></script>
-    <script src="/assets/admin/js/datatable/ZeroClipboard.js"></script>
-    {{--<script src="/assets/admin/js/datatable/dataTables.tableTools.min.js"></script>--}}
-    <script src="/assets/admin/js/datatable/dataTables.bootstrap.min.js"></script>
-    <script src="/assets/admin/js/datatable/datatables-init.js"></script>
+    <script src="/assets/vendor/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="/assets/vendor/js/datatable/ZeroClipboard.js"></script>
+    {{--<script src="/assets/vendor/js/datatable/dataTables.tableTools.min.js"></script>--}}
+    <script src="/assets/vendor/js/datatable/dataTables.bootstrap.min.js"></script>
+
+    <script src="/assets/admin/js/user/index.js"></script>
     <script>
         UserListDataTable.init();
     </script>
