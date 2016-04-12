@@ -54,27 +54,10 @@
                     <div class="widget-body no-padding">
                         <table class="table table-bordered table-hover table-striped" id="searchable">
                             <thead class="bordered-darkorange">
-                            <tr role="row">
-                                <th>ID</th>
-                                <th>用户名</th>
-                                <th>邮箱</th>
-                                <th>创建时间</th>
-                                <th>更新时间</th>
-                                <th>操作</th>
-                            </tr>
+                            {{--页头--}}
                             </thead>
-                            {{--<tfoot>--}}
-                            {{--<tr>--}}
-                                {{--<th rowspan="1" colspan="1"><input type="text" name="search_engine" placeholder="Search engines" class="form-control input-sm"></th>--}}
-                                {{--<th rowspan="1" colspan="1"><input type="text" name="search_browser" placeholder="Search browsers" class="form-control input-sm"></th>--}}
-                                {{--<th rowspan="1" colspan="1"><input type="text" name="search_platform" placeholder="Search platforms" class="form-control input-sm"></th>--}}
-                                {{--<th rowspan="1" colspan="1"><input type="text" name="search_version" placeholder="Search versions" class="form-control input-sm"></th>--}}
-                                {{--<th rowspan="1" colspan="1"><input type="text" name="search_grade" placeholder="Search grades" class="form-control input-sm"></th>--}}
-                                {{--<th rowspan="1" colspan="1"><input type="text" name="search_grade" placeholder="Search grades" class="form-control input-sm"></th>--}}
-                            {{--</tr>--}}
-                            {{--</tfoot>--}}
                             <tbody>
-
+                            {{--数据部分--}}
                             </tbody>
                         </table>
                     </div>
@@ -86,12 +69,8 @@
 
 @section('page_script')
     <script src="/assets/vendor/js/datatable/jquery.dataTables.min.js"></script>
-    <script src="/assets/vendor/js/datatable/ZeroClipboard.js"></script>
     {{--<script src="/assets/vendor/js/datatable/dataTables.tableTools.min.js"></script>--}}
     <script src="/assets/vendor/js/datatable/dataTables.bootstrap.min.js"></script>
 
     <script src="/assets/admin/js/user/index.js"></script>
-    <script>
-        UserListDataTable.init();
-    </script>
 @stop

@@ -429,20 +429,13 @@ Purchase: http://wrapbootstrap.com
 <!--Basic Scripts-->
 <script src="/assets/vendor/js/jquery-2.0.3.min.js"></script>
 <script src="/assets/vendor/js/bootstrap.min.js"></script>
-
+<!--layer弹框-->
+<script src="/assets/vendor/js/layer/layer.js"></script>
 <!--Beyond Scripts-->
 <script src="/assets/vendor/js/beyond.min.js"></script>
-<script type="text/javascript">
-    var url_pathname = window.location.pathname;
-    var $curr_a = $(".sidebar-menu a[href='"+url_pathname+"']");
-    var $parent_li = $curr_a.parent('li');
-    $parent_li.addClass('active');
-    if ($parent_li.parent('ul').hasClass('submenu')) {
-        $parent_li.parent().parent().addClass('open');
-    }
-</script>
 <!--Page Related Scripts-->
 @yield('page_script')
+<script src="/assets/admin/js/common/common.js"></script>
 </body>
 <!--  /Body -->
 </html>

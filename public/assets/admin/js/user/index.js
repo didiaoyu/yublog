@@ -28,21 +28,19 @@ var UserListDataTable = function () {
                 "serverSide": true,
                 "ajax": "/admin/user/userlist",
                 columns: [
-                    { data: 'id', bSearchable: false, bSortable: false},
-                    { data: 'name'},
-                    { data: 'email'},
-                    { data: 'created_at'},
-                    { data: 'updated_at'},
-                    // sDefaultContent 如果这一列不需要填充数据用这个属性，值可以不写，起占位作用
-                    { "sDefaultContent": '编辑  删除', mRender: function(data){}}
-                ]
+                    { data: 'id', title: 'ID', bSearchable: false, bSortable: false},
+                    { data: 'name', title: '用户名'},
+                    { data: 'email', title: '邮箱'},
+                    { data: 'created_at', title: '创建时间'},
+                    { data: 'updated_at', title: '更新时间'},
+                    { data: null, title: '操作'}
+                ],
+                fnRowCallback: function(nRow, aData, iDisplayIndex) {
+                    $('td:eq(-1)', nRow).html('<span class="btn btn-link action-edit" data-href="/admin/user/edit?id='+ aData.id +'">编辑</span>  ' +
+                        '<span class="btn btn-link action-del" data-href="/admin/user/delete?id='+ aData.id +'">删除</span>');
+                }
             });
-
-            /*$("tfoot input").keyup(function () {
-                /!* Filter on the column (the index) of this element *!/
-                oTable.fnFilter(this.value, $("tfoot input").index(this));
-            });*/
-
         }
     }
 }();
+UserListDataTable.init();

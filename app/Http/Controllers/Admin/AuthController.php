@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -45,6 +46,15 @@ class AuthController extends Controller
         //$this->middleware('guest', ['except' => 'logout']);
     }
 
+    public function login(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            return $this->postLogin($request);
+        } else {
+            return view('admin.auth.login');
+        }
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -62,7 +72,6 @@ class AuthController extends Controller
 
     /**
      * Create a new user instance after a valid registration.
-     *
      * @param  array  $data
      * @return User
      */
