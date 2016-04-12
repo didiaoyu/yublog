@@ -63,7 +63,6 @@
                                 <th>操作</th>
                             </tr>
                             </thead>
-
                             {{--<tfoot>--}}
                             {{--<tr>--}}
                                 {{--<th rowspan="1" colspan="1"><input type="text" name="search_engine" placeholder="Search engines" class="form-control input-sm"></th>--}}

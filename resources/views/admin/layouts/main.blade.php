@@ -389,14 +389,14 @@ Purchase: http://wrapbootstrap.com
             <!-- Sidebar Menu -->
             <ul class="nav sidebar-menu">
                 <!--Dashboard-->
-                <li class="active">
-                    <a href="{{ url('admin/home/index') }}">
+                <li class="">
+                    <a href="/admin/home/index">
                         <i class="menu-icon glyphicon glyphicon-home"></i>
                         <span class="menu-text"> 首页 </span>
                     </a>
                 </li>
                 <!--UI Elements-->
-                <li>
+                <li class="">
                     <a href="#" class="menu-dropdown">
                         <i class="menu-icon fa fa-desktop"></i>
                         <span class="menu-text"> 用户管理 </span>
@@ -404,8 +404,8 @@ Purchase: http://wrapbootstrap.com
                     </a>
 
                     <ul class="submenu">
-                        <li>
-                            <a href="{{ url('admin/user/index') }}">
+                        <li class="">
+                            <a href="/admin/user/index">
                                 <span class="menu-text">用户列表</span>
                             </a>
                         </li>
@@ -432,7 +432,15 @@ Purchase: http://wrapbootstrap.com
 
 <!--Beyond Scripts-->
 <script src="/assets/vendor/js/beyond.min.js"></script>
-
+<script type="text/javascript">
+    var url_pathname = window.location.pathname;
+    var $curr_a = $(".sidebar-menu a[href='"+url_pathname+"']");
+    var $parent_li = $curr_a.parent('li');
+    $parent_li.addClass('active');
+    if ($parent_li.parent('ul').hasClass('submenu')) {
+        $parent_li.parent().parent().addClass('open');
+    }
+</script>
 <!--Page Related Scripts-->
 @yield('page_script')
 </body>
