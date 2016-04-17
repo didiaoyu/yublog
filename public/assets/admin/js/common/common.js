@@ -1,6 +1,15 @@
+//点击导航菜单将url存入cookie
+$('.sidebar-menu').on('click', 'a', function () {
+    var url = $(this).data('url');
+    if (url) {
+        eraseCookie('cur_url');
+        createCookie('cur_url', url);
+        window.location.href = url;
+    }
+});
 //导航选中
-var url_pathname = window.location.pathname;
-var $curr_a = $(".sidebar-menu a[href='"+url_pathname+"']");
+var url_pathname = readCookie('cur_url') ? readCookie('cur_url') : '/admin/home/index';
+var $curr_a = $(".sidebar-menu a[data-url='"+url_pathname+"']");
 var $parent_li = $curr_a.parent('li');
 $parent_li.addClass('active');
 if ($parent_li.parent('ul').hasClass('submenu')) {

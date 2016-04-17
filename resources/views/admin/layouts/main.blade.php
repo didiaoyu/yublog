@@ -390,7 +390,7 @@ Purchase: http://wrapbootstrap.com
             <ul class="nav sidebar-menu">
                 <!--Dashboard-->
                 <li class="">
-                    <a href="/admin/home/index">
+                    <a href="javascript:" data-url="/admin/home/index">
                         <i class="menu-icon glyphicon glyphicon-home"></i>
                         <span class="menu-text"> 首页 </span>
                     </a>
@@ -405,7 +405,7 @@ Purchase: http://wrapbootstrap.com
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="/admin/user/index">
+                            <a href="javascript:" data-url="/admin/user/index">
                                 <span class="menu-text">用户列表</span>
                             </a>
                         </li>
@@ -458,6 +458,9 @@ Purchase: http://wrapbootstrap.com
 <!--Page Related Scripts-->
 @yield('page_script')
 <script src="/assets/admin/js/common/common.js"></script>
+<script type="text/javascript">
+    eraseCookie()
+</script>
 </body>
 <!--  /Body -->
 </html>
