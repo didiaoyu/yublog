@@ -26,7 +26,7 @@ var UserListDataTable = function () {
                 },
                 "processing": true,
                 "serverSide": true,
-                "ajax": "/admin/user/userlist",
+                "ajax": "/admin/user/index",
                 columns: [
                     { data: 'id', title: 'ID', bSearchable: false, bSortable: false},
                     { data: 'name', title: '用户名'},

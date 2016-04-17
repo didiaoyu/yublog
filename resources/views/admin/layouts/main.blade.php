@@ -417,6 +417,28 @@ Purchase: http://wrapbootstrap.com
         <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
+            <!-- Page Breadcrumb -->
+            <div class="page-header page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="active">用户管理</li>
+                </ul>
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- /Page Breadcrumb -->
             @yield('content')
         </div>
         <!-- /Page Content -->

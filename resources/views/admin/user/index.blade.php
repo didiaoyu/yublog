@@ -5,28 +5,6 @@
 @stop
 
 @section("content")
-    <!-- Page Breadcrumb -->
-    <div class="page-header page-breadcrumbs">
-        <ul class="breadcrumb">
-            <li>
-                <i class="fa fa-home"></i>
-                <a href="#">首页</a>
-            </li>
-            <li class="active">用户管理</li>
-        </ul>
-        <div class="header-buttons">
-            <a class="sidebar-toggler" href="#">
-                <i class="fa fa-arrows-h"></i>
-            </a>
-            <a class="refresh" id="refresh-toggler" href="">
-                <i class="glyphicon glyphicon-refresh"></i>
-            </a>
-            <a class="fullscreen" id="fullscreen-toggler" href="#">
-                <i class="glyphicon glyphicon-fullscreen"></i>
-            </a>
-        </div>
-    </div>
-    <!-- /Page Breadcrumb -->
     <!-- Page Body -->
     <div class="page-body">
         <div class="row">
@@ -51,7 +29,12 @@
                             </a>
                         </div>
                     </div>
-                    <div class="widget-body no-padding">
+                    <div class="widget-body">
+                        <div class="table-toolbar" style="padding-top: 0;">
+                            <a id="bat_add_site" href="/admin/user/add" class="btn btn-default fa fa-plus">
+                                添加用户
+                            </a>
+                        </div>
                         <table class="table table-bordered table-hover table-striped" id="searchable">
                             <thead class="bordered-darkorange">
                             {{--页头--}}
