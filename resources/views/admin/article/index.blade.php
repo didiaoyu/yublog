@@ -31,8 +31,8 @@
                     </div>
                     <div class="widget-body">
                         <div class="table-toolbar" style="padding-top: 0;">
-                            <a id="bat_add_site" href="/admin/article/add" class="btn btn-default fa fa-plus">
-                                添加用户
+                            <a id="bat_add_site" href="/admin/articles/add" class="btn btn-default fa fa-plus">
+                                添加文章
                             </a>
                         </div>
                         <table class="table table-bordered table-hover table-striped" id="searchable">

@@ -35,5 +35,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
         Route::match(['get', 'post'], '/user/add', 'Admin\UserController@add');
         Route::get('/user/delete', 'Admin\UserController@delete');
         Route::get('/articles/index', 'Admin\ArticlesController@index');
+        Route::match(['get', 'post'], '/articles/add', 'Admin\ArticlesController@add');
+        Route::match(['get', 'post'], '/articles/edit', 'Admin\ArticlesController@edit');
+        Route::get('/articles/delete', 'Admin\ArticlesController@delete');
     });
 });

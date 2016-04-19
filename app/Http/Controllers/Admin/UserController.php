@@ -20,7 +20,6 @@ class UserController extends AdminController
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $draw = Input::get('draw', 1);
             $start = Input::get('start', 0);
             $length = Input::get('length', 10);
             $search = Input::get('search');
@@ -31,7 +30,7 @@ class UserController extends AdminController
             }
             $recordTotal = $userDB->count();
             $userList = $userDB->skip($start)->take($length)->get();
-            return Response::json($this->formatDataTableData($userList, $draw, $recordTotal));
+            return Response::json($this->formatDataTableData($userList, $recordTotal));
         }
         return view('admin.user.index');
     }

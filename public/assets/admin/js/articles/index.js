@@ -31,6 +31,7 @@ var UserListDataTable = function () {
                     { data: 'id', title: 'ID', bSearchable: false, bSortable: false},
                     { data: 'title', title: '标题'},
                     { data: 'view_count', title: '浏览量'},
+                    { data: 'tags', title: '标签'},
                     { data: 'created_at', title: '创建时间'},
                     { data: 'updated_at', title: '更新时间'},
                     { data: null, title: '操作'}
