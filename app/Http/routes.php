@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/detail/{id}', 'HomeController@detail');
+Route::get('/tag/{id}', 'HomeController@tag');
 
 /*
 |--------------------------------------------------------------------------

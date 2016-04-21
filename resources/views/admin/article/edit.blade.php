@@ -13,7 +13,7 @@
                     <div class="col-lg-12 col-sm-12 col-xs-12">
                         <div class="widget">
                             <div class="widget-header bordered-bottom bordered-blue">
-                                <span class="widget-caption">文章添加</span>
+                                <span class="widget-caption">文章修改</span>
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
@@ -22,13 +22,19 @@
                                         <div class="form-group">
                                             <label for="info_username" class="col-sm-2 control-label no-padding-right">文章标题</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name="info[title]" value="{{ $title }}" class="form-control" required placeholder="请输入文章标题"/>
+                                                <input type="text" name="info[title]" value="{{ $title or '' }}" class="form-control" required placeholder="请输入文章标题"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="info_username" class="col-sm-2 control-label no-padding-right">标签</label>
                                             <div class="col-sm-10">
-                                                <input type="text" name="tags" value="{{ $tags }}" class="form-control" id="info_username" placeholder="请输入标签,多个标签请用英文逗号（,）分开"/>
+                                                <input type="text" name="tags" value="{{ $tags or '' }}" class="form-control" id="info_username" placeholder="请输入标签,多个标签请用英文逗号（,）分开"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="info_username" class="col-sm-2 control-label no-padding-right">文章描述</label>
+                                            <div class="col-sm-10">
+                                                <textarea type="text" name="info[description]" class="form-control">{{ $description or '' }}</textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -36,6 +42,26 @@
                                             <div class="col-sm-10">
                                                 <!-- 加载编辑器的容器 -->
                                                 <script id="container" name="info[content]" type="text/plain">{!! $content !!}</script>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="info_username" class="col-sm-2 control-label no-padding-right">是否发布</label>
+                                            <div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" class="colored-success" name="info[is_published]" value="1" checked="checked">
+                                                        <span class="text">立即发布</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="info_username" class="col-sm-2 control-label no-padding-right">发布时间</label>
+                                            <div class="col-sm-10">
+                                                <span class="input-icon icon-right">
+                                                    <input class="form-control date-picker" type="text" name="info[published_at]" value="{{ $published_at or '' }}">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span>
                                             </div>
                                         </div>
                                         <div class="form-group">

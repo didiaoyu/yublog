@@ -51,7 +51,6 @@ class ArticlesController extends AdminController
         if ($request->isMethod('post')) {
             $info = $request->input('info');
             $info['user_id'] = Auth::user()->id;
-
             $articleRes = Article::create($info);
             if ($articleRes) {
                 //添加标签
@@ -84,7 +83,7 @@ class ArticlesController extends AdminController
             ->leftJoin('tags_relations', 'articles.id', '=', 'tags_relations.article_id')
             ->leftJoin('tags', 'tags.id', '=', 'tags_relations.tag_id')
             ->groupBy('articles.id')
-            ->select(DB::raw('articles.id, articles.title, articles.view_count,articles.content,GROUP_CONCAT(tags.`name`) AS tags'))
+            ->select(DB::raw('articles.id, articles.title, articles.description, articles.view_count,articles.content,GROUP_CONCAT(tags.`name`) AS tags'))
             ->where('articles.id', $request->input('id'))
             ->first();
         return view('admin.article.edit', $articleInfo);
