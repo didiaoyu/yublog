@@ -2,11 +2,9 @@
 
 @section("contents")
     <!-- Jumbotron -->
-    <header class="jumbotron">
-        <!-- <img class="hidden" src="img/gulp.png" width="800" height="600">
-        <h1><span class="text-hide">Gulp.js<span><img class="logo" src="img/gulp-white-text.svg"></span></span></h1> -->
-        <p class="lead">朝着目标 奔跑吧兄弟！</p>
-        {{--<p><a class="btn btn-lg btn-default btn-getting-started" href="docs/getting-started/" role="button">开始使用</a></p>--}}
+    <header class="jumbotron costomheader">
+        <h1><span class="text-hide">Yu'Blog<span><img class="logo" src="/assets/frontend/images/logo.png"></span></span></h1>
+        <p class="lead">不积跬步无以至千里 &nbsp;每天学习一点点 每天进步一点点</p>
     </header>
     <section class="container content">
         <div class="columns col-md-12">

@@ -216,7 +216,7 @@ color:#FFF;
 	background-color: #F3635F;
     border-color: #F3635F;
 }
-#docs-content{
-    word-break: break-all;
+.costomheader{
+	padding-top: 18px;
 }
 
