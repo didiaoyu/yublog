@@ -21,6 +21,7 @@ pre {
   text-align: center;
   background-color: #cf4646;
   color: #fff;
+  padding-top: 18px;
 }
 .jumbotron .lead em {
   display: none;
@@ -216,7 +217,6 @@ color:#FFF;
 	background-color: #F3635F;
     border-color: #F3635F;
 }
-.costomheader{
-	padding-top: 18px;
+#docs-content{
+	word-break: break-all;
 }
-
