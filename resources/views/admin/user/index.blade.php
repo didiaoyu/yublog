@@ -54,6 +54,7 @@
     <script src="/assets/vendor/js/datatable/jquery.dataTables.min.js"></script>
     {{--<script src="/assets/vendor/js/datatable/dataTables.tableTools.min.js"></script>--}}
     <script src="/assets/vendor/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="/assets/admin/js/common/dataTable.init.js"></script>
 
     <script src="/assets/admin/js/user/index.js"></script>
 @stop
