@@ -16,4 +16,10 @@ class Category extends Model
     protected $fillable = [
         'name','parent_id','alias','order'
     ];
+
+    public static function getCategory()
+    {
+        $category = self::orderBy('order', 'asc')->get()->toArray();
+        return $category;
+    }
 }

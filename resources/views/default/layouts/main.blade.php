@@ -46,6 +46,9 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">首页</a>
+                @foreach($category as $cate)
+                    <li><a href="/category/{{ $cate['alias'] }}">{{ $cate['name'] }}</a>
+                @endforeach
             </ul>
         </div>
         <!--/.nav-collapse -->

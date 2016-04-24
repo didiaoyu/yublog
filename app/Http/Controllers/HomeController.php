@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Model\Article;
+use App\Model\Category;
 use App\Model\Tag;
 use App\Model\TagsRelation;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
     }
 
     /**
@@ -49,6 +51,22 @@ class HomeController extends Controller
             $ids[] = $idArr['article_id'];
         }
         $articles = Article::whereIn('id', $ids)->where('is_published', '1')->paginate(config('blog.page_size'));
+
+        //标签
+        $tags = Tag::limit(30)->orderBy('created_at', 'desc')->get()->toArray();
+
+        return view('default.home.index', ['articles' => $articles, 'tags' => $tags]);
+    }
+
+    //分类
+    public function category($alias)
+    {
+        $cateInfo = Category::where('alias', $alias)->first()->toArray();
+        if (empty($cateInfo)) {
+            abort('404');
+        }
+        //文章
+        $articles = Article::where('is_published', '1')->where('cate_id', $cateInfo['id'])->paginate(1);
 
         //标签
         $tags = Tag::limit(30)->orderBy('created_at', 'desc')->get()->toArray();
