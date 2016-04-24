@@ -14,7 +14,7 @@ $.extend(true, $.fn.dataTable.defaults, {
     language: {
         "sEmptyTable":   	"没有匹配的数据",
         "sInfo":         	"第 _START_ - _END_ 条 / 共 _TOTAL_ 条数据",
-        "sInfoEmpty":    	"没有匹配的数据",
+        "sInfoEmpty":    	"共 _TOTAL_ 条数据",
         "sInfoFiltered": 	"(搜索到 _MAX_ 条数据)",
         "sInfoPostFix":  	"",
         "sInfoThousands":  ".",
