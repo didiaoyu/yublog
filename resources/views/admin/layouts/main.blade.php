@@ -187,12 +187,12 @@ Purchase: http://wrapbootstrap.com
                         </li>
                         <li class="">
                             <a href="javascript:" data-url="/admin/category/index">
-                                <span class="menu-text">栏目列表</span>
+                                <span class="menu-text">栏目管理</span>
                             </a>
                         </li>
                         <li class="">
                             <a href="javascript:" data-url="/admin/tags/index">
-                                <span class="menu-text">标签列表</span>
+                                <span class="menu-text">标签管理</span>
                             </a>
                         </li>
                     </ul>

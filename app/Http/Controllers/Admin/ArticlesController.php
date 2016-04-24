@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Model\Article;
+use App\Model\Category;
 use App\Model\Tag;
 use App\Model\TagsRelation;
 use App\User;
@@ -50,6 +51,8 @@ class ArticlesController extends AdminController
     {
         if ($request->isMethod('post')) {
             $info = $request->input('info');
+            if (empty($info['is_published']))
+                $info['is_published'] = 0;
             $info['user_id'] = Auth::user()->id;
             $articleRes = Article::create($info);
             if ($articleRes) {
@@ -60,7 +63,8 @@ class ArticlesController extends AdminController
                 redirect()->back();
             }
         }
-        return view('admin.article.add');
+        $category = Category::orderBy('order', 'asc')->get();
+        return view('admin.article.add', ['category' => $category]);
     }
 
     //修改
@@ -69,6 +73,8 @@ class ArticlesController extends AdminController
         //保存修改
         if ($request->isMethod('post')) {
             $info = $request->input('info');
+            if (empty($info['is_published']))
+                $info['is_published'] = 0;
             $ret = Article::where('id', $info['id'])->update($info);
             if ($ret) {
                 TagsRelation::manageTagRelation($info['id'], $request->input('tags'), 1);
@@ -83,10 +89,12 @@ class ArticlesController extends AdminController
             ->leftJoin('tags_relations', 'articles.id', '=', 'tags_relations.article_id')
             ->leftJoin('tags', 'tags.id', '=', 'tags_relations.tag_id')
             ->groupBy('articles.id')
-            ->select(DB::raw('articles.id, articles.title, articles.description, articles.view_count,articles.content,GROUP_CONCAT(tags.`name`) AS tags'))
+            ->select(DB::raw('articles.id, articles.cate_id, articles.title, articles.description, articles.view_count,
+            articles.content, articles.is_published, articles.published_at,GROUP_CONCAT(tags.`name`) AS tags'))
             ->where('articles.id', $request->input('id'))
             ->first();
-        return view('admin.article.edit', $articleInfo);
+        $category = Category::orderBy('order', 'asc')->get();
+        return view('admin.article.edit', ['articleInfo' => $articleInfo, 'category' => $category]);
     }
 
     //删除

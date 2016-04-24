@@ -20,26 +20,37 @@
                                     <form class="form-horizontal" role="form" data-parsley-validate="" method="post">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <div class="form-group">
-                                            <label for="info_username" class="col-sm-2 control-label no-padding-right">文章标题</label>
+                                            <label class="col-sm-2 control-label no-padding-right">所属栏目</label>
+                                            <div class="col-sm-10">
+                                                <select name="info[cate_id]" required>
+                                                    <option value="">--请选择--</option>
+                                                    @foreach($category as $cate)
+                                                        <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">文章标题</label>
                                             <div class="col-sm-10">
                                                 <input type="text" name="info[title]" class="form-control" required placeholder="请输入文章标题"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="info_username" class="col-sm-2 control-label no-padding-right">标签</label>
+                                            <label class="col-sm-2 control-label no-padding-right">标签</label>
                                             <div class="col-sm-10">
                                                 <input type="text" name="tags" class="form-control" id="info_username" placeholder="请输入标签,多个标签请用英文逗号（,）分开"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="info_email" class="col-sm-2 control-label no-padding-right">内容</label>
+                                            <label class="col-sm-2 control-label no-padding-right">内容</label>
                                             <div class="col-sm-10">
                                                 <!-- 加载编辑器的容器 -->
                                                 <script id="container" name="info[content]" type="text/plain"></script>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="info_username" class="col-sm-2 control-label no-padding-right">是否发布</label>
+                                            <label class="col-sm-2 control-label no-padding-right">是否发布</label>
                                             <div>
                                                 <div class="checkbox">
                                                     <label>
@@ -50,7 +61,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="info_username" class="col-sm-2 control-label no-padding-right">发布时间</label>
+                                            <label class="col-sm-2 control-label no-padding-right">发布时间</label>
                                             <div class="col-sm-10">
                                                 <span class="input-icon icon-right">
                                                     <input class="form-control date-picker" type="text" name="info[published_at]" value="{{ $published_at or date('Y-m-d H:i:s') }}">
