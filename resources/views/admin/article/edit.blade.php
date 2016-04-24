@@ -71,7 +71,9 @@
                                             <label class="col-sm-2 control-label no-padding-right">发布时间</label>
                                             <div class="col-sm-10">
                                                 <span class="input-icon icon-right">
-                                                    <input class="form-control date-picker" type="text" name="info[published_at]" value="{{ $articleInfo['published_at'] or '' }}">
+                                                    <input class="form-control date-picker" type="text" name="info[published_at]"
+                                                           value="{{ $articleInfo['published_at'] or '' }}"
+                                                           data-date-format="yyyy-mm-dd hh:ii:ss"/>
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
                                             </div>
@@ -105,15 +107,20 @@
     <script type="text/javascript" src="/assets/vendor/ueditor/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->
     <script type="text/javascript" src="/assets/vendor/ueditor/ueditor.all.js"></script>
+    <!--Bootstrap Date Picker-->
+    <link rel="stylesheet" href="/assets/vendor/js/datetime/css/custom-datetimepicker.css" />
+    <script src="/assets/vendor/js/datetime/bootstrap-datetimepicker.js"></script>
+    <script src="/assets/vendor/js/datetime/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
 
     <script type="text/javascript">
         //实例化编辑器
         var editor = UE.getEditor('container');
 
-        //Jquery select2
-        $("#tags").select2({
-            placeholder: "Select a State",
-            allowClear: true
+        //--Bootstrap Date Picker--
+        $('.date-picker').datetimepicker({
+            autoclose: true,
+            todayBtn: true,
+            language: 'zh-CN'
         });
     </script>
     {{--<script src="/assets/admin/js/user/index.js"></script>--}}
