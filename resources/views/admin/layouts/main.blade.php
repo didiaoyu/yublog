@@ -34,11 +34,7 @@ Purchase: http://wrapbootstrap.com
     <!--IE8兼容处理 禁用IE兼容模式-->
     <!--[if lt IE 9]>
     <script src="/assets/vendor/js/ieonly/html5shiv.js"></script>
-    <![endif]-->
-    <!--[if lt IE 9]>
     <script src="/assets/vendor/js/ieonly/respond.js"></script>
-    <![endif]-->
-    <!--[if lt IE 9]>
     <script src="/assets/vendor/js/ieonly/excanvas.js"></script>
     <![endif]-->
 </head>
@@ -186,7 +182,17 @@ Purchase: http://wrapbootstrap.com
                     <ul class="submenu">
                         <li class="">
                             <a href="javascript:" data-url="/admin/articles/index">
-                                <span class="menu-text">文章列表</span>
+                                <span class="menu-text">文章管理</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:" data-url="/admin/category/index">
+                                <span class="menu-text">栏目列表</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:" data-url="/admin/tags/index">
+                                <span class="menu-text">标签列表</span>
                             </a>
                         </li>
                     </ul>
