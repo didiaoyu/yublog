@@ -66,7 +66,7 @@ class HomeController extends Controller
             abort('404');
         }
         //文章
-        $articles = Article::where('is_published', '1')->where('cate_id', $cateInfo['id'])->paginate(1);
+        $articles = Article::where('is_published', '1')->where('cate_id', $cateInfo['id'])->paginate(config('blog.page_size'));
 
         //标签
         $tags = Tag::limit(30)->orderBy('created_at', 'desc')->get()->toArray();
