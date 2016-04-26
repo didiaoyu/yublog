@@ -27,6 +27,7 @@
     <script src="/assets/vendor/js/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="/assets/vendor/js/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" href="/assets/frontend/css/skin_1.css">
 </head>
 
 <body>

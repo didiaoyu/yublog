@@ -1,0 +1,45 @@
+/**导航颜色**/
+.navbar-inverse{
+    background-color: #03B3B2;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    border-color: #03B3B2;
+}
+/**header部分颜色**/
+.jumbotron{
+    background-color: #03B3B2;
+}
+
+/**覆盖默认分页样式*/
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    background-color: #03B3B2;
+    border-color: #03B3B2;
+}
+
+a {
+    color: #03B3B2;
+}
+
+/**标签云**/
+.widget .tag-cloud a:hover {
+    color: #ffffff;
+    background: #03B3B2;
+    border: 1px solid #03B3B2;
+    text-decoration: none;
+}
+.widget .title:after{
+    background: #03B3B2;
+}
+/**选中文字后 背景色**/
+::selection {
+    background:#03B3B2;
+    color:#FFF;
+}
+::-moz-selection {
+    background:#03B3B2;
+    color:#FFF;
+}
+::-webkit-selection {
+    background:#03B3B2;
+    color:#FFF;
+}
