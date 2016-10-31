@@ -27,7 +27,7 @@ Route::get('/category/{alias}', 'HomeController@category');
 |
 */
 Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
-    Route::match(['get', 'post'], '/', 'Admin\AuthController@login');
+    Route::match(['get', 'post'], '/', 'Admin\AuthController@signin');
     Route::get('/logout', 'Admin\AuthController@logout');
     Route::group(['middleware' => 'auth'], function() {
         Route::get('/home/index', 'Admin\HomeController@index');

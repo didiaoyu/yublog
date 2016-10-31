@@ -46,7 +46,7 @@ class AuthController extends Controller
         //$this->middleware('guest', ['except' => 'logout']);
     }
 
-    public function login(Request $request)
+    public function signin(Request $request)
     {
         if ($request->isMethod('post')) {
             return $this->postLogin($request);
