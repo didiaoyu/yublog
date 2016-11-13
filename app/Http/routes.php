@@ -26,30 +26,35 @@ Route::get('/category/{alias}', 'HomeController@category');
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-Route::group(['prefix' => 'admin', 'middleware' => 'web'], function () {
-    Route::match(['get', 'post'], '/', 'Admin\AuthController@signin');
-    Route::get('/logout', 'Admin\AuthController@logout');
+Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'], function () {
+    Route::match(['get', 'post'], '/', 'AuthController@signin');
+    Route::get('/logout', 'AuthController@logout');
     Route::group(['middleware' => 'auth'], function() {
-        Route::get('/home/index', 'Admin\HomeController@index');
+        Route::get('/home/index', 'HomeController@index');
         //用户
-        Route::get('/user/index', 'Admin\UserController@index');
-        Route::match(['get', 'post'], '/user/edit', 'Admin\UserController@edit');
-        Route::match(['get', 'post'], '/user/add', 'Admin\UserController@add');
-        Route::get('/user/delete', 'Admin\UserController@delete');
+        Route::get('/user/index', 'UserController@index');
+        Route::match(['get', 'post'], '/user/edit', 'UserController@edit');
+        Route::match(['get', 'post'], '/user/add', 'UserController@add');
+        Route::get('/user/delete', 'UserController@delete');
         //文章
-        Route::get('/articles/index', 'Admin\ArticlesController@index');
-        Route::match(['get', 'post'], '/articles/add', 'Admin\ArticlesController@add');
-        Route::match(['get', 'post'], '/articles/edit', 'Admin\ArticlesController@edit');
-        Route::get('/articles/delete', 'Admin\ArticlesController@delete');
+        Route::get('/articles/index', 'ArticlesController@index');
+        Route::match(['get', 'post'], '/articles/add', 'ArticlesController@add');
+        Route::match(['get', 'post'], '/articles/edit', 'ArticlesController@edit');
+        Route::get('/articles/delete', 'ArticlesController@delete');
         //栏目
-        Route::get('/category/index', 'Admin\CategoryController@index');
-        Route::match(['get', 'post'], '/category/add', 'Admin\CategoryController@add');
-        Route::match(['get', 'post'], '/category/edit', 'Admin\CategoryController@edit');
-        Route::get('/category/delete', 'Admin\CategoryController@delete');
+        Route::get('/category/index', 'CategoryController@index');
+        Route::match(['get', 'post'], '/category/add', 'CategoryController@add');
+        Route::match(['get', 'post'], '/category/edit', 'CategoryController@edit');
+        Route::get('/category/delete', 'CategoryController@delete');
         //标签
-        Route::get('/tags/index', 'Admin\TagsController@index');
-        Route::match(['get', 'post'], '/tags/add', 'Admin\TagsController@add');
-        Route::match(['get', 'post'], '/tags/edit', 'Admin\TagsController@edit');
-        Route::get('/tags/delete', 'Admin\TagsController@delete');
+        Route::get('/tags/index', 'TagsController@index');
+        Route::match(['get', 'post'], '/tags/add', 'TagsController@add');
+        Route::match(['get', 'post'], '/tags/edit', 'TagsController@edit');
+        Route::get('/tags/delete', 'TagsController@delete');
+        //图片管理
+        Route::get('/images/index', 'ImagesController@index');
+        Route::match(['get', 'post'], '/images/add', 'ImagesController@add');
+        Route::match(['get', 'post'], '/images/upload', 'ImagesController@upload');
+        Route::get('/images/delete', 'ImagesController@delete');
     });
 });

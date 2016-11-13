@@ -176,6 +176,21 @@ Purchase: http://wrapbootstrap.com
                 <li class="">
                     <a href="#" class="menu-dropdown">
                         <i class="menu-icon fa fa-desktop"></i>
+                        <span class="menu-text"> 图片管理 </span>
+                        <i class="menu-expand"></i>
+                    </a>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="javascript:" data-url="/admin/images/index">
+                                <span class="menu-text">图片列表</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" class="menu-dropdown">
+                        <i class="menu-icon fa fa-desktop"></i>
                         <span class="menu-text"> 内容管理 </span>
                         <i class="menu-expand"></i>
                     </a>
