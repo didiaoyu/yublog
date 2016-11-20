@@ -18,7 +18,7 @@
                             </div>
                             <div class="widget-body">
                                 <div id="horizontal-form">
-                                    <form class="form-horizontal" role="form" data-parsley-validate="" method="post">
+                                    <form class="form-horizontal" enctype="multipart/form-data" role="form" data-parsley-validate="" method="post">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">所属分类</label>
@@ -32,12 +32,38 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">标题</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="info[title]" class="form-control" required placeholder="请输入标题"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">所需积分</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" name="info[need_score]" class="form-control" required placeholder="请输入所需积分"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">封面图片</label>
+                                            <div class="col-sm-10">
+                                                <input type="file" name="img_url" class="form-control" required placeholder="请选择封面图片"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label no-padding-right">是否公开</label>
+                                            <div class="col-sm-10">
+                                                <select name="info[if_open]" required>
+                                                    <option value="1">是</option>
+                                                    <option value="0">否</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">图片</label>
                                             <div class="col-sm-10">
                                                 <div id="wrapper">
                                                     <div id="container">
                                                         <!--头部，相册选择和格式选择-->
-
                                                         <div id="uploader">
                                                             <div class="queueList">
                                                                 <div id="dndArea" class="placeholder">
@@ -58,13 +84,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <input type="hidden" name="all_images" id="all_images">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label no-padding-right">发布时间</label>
                                             <div class="col-sm-10">
                                                 <span class="input-icon icon-right">
-                                                    <input class="form-control date-picker" type="text" name="info[published_at]"
-                                                           value="{{ $published_at or date('Y-m-d H:i:s') }}"
+                                                    <input class="form-control date-picker" type="text" name="info[create_time]"
+                                                           value="{{ date('Y-m-d H:i:s') }}"
                                                            data-date-format="yyyy-mm-dd hh:ii:ss" />
                                                     <i class="fa fa-calendar"></i>
                                                 </span>
@@ -109,6 +136,16 @@
             todayBtn: true,
             language: 'zh-CN'
         });
+        var images_arr = [];
+        var $all_images = $('#all_images');
+        //百度uploader上传成功后回调
+        function upload_callback(data, file_info) {
+            if (data.image_url) {
+                images_arr.push(data.image_url);
+                var images_str = images_arr.join(';');
+                $all_images.val(images_str);
+            }
+        }
     </script>
     {{--<script src="/assets/admin/js/user/index.js"></script>--}}
 @stop

@@ -12,12 +12,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Library\Helper;
 use App\Model\Article;
 use App\Model\Category;
+use App\Model\ImgContent;
+use App\Model\ImgContentImg;
 use App\Model\TagsRelation;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Storage;
 use Response;
 
 class ImagesController extends AdminController
@@ -51,17 +52,34 @@ class ImagesController extends AdminController
     {
         if ($request->isMethod('post')) {
             $info = $request->input('info');
-            if (empty($info['is_published']))
-                $info['is_published'] = 0;
-            $info['user_id'] = Auth::user()->id;
-            $articleRes = Article::create($info);
-            if ($articleRes) {
-                //添加标签
-                TagsRelation::manageTagRelation($articleRes->id, $request->input('tags'));
-                return redirect()->to('/admin/articles/index');
+            $cover_img_info = Helper::upload($request, 'img_url');
+            if ($cover_img_info['status'] == 1) {
+                $info['img_url'] = $cover_img_info['image_url'];
+                $info['temp_img_url'] = $cover_img_info['image_url'];
             } else {
-                redirect()->back();
+                return redirect()->back()->withInput()->withErrors('封面图片上传失败');
             }
+            DB::beginTransaction();
+            $img_content_res = ImgContent::create($info);
+            if ($img_content_res) {
+                //添加正文图片
+                $all_images = $request->get('all_images');
+                $all_images_arr = explode(';', $all_images);
+                $data = [];
+                foreach ($all_images_arr as $image) {
+                    $data[] = [
+                        'content_id' => $img_content_res['content_id'],
+                        'img_url' => $image
+                    ];
+                }
+                $res = ImgContentImg::insert($data);
+                if ($res) {
+                    DB::commit();
+                    return redirect()->to('/admin/images/index');
+                }
+            }
+            DB::rollBack();
+            return redirect()->back('/admin/articles/index')->withInput()->withErrors('添加失败');
         }
         $category = Category::orderBy('order', 'asc')->get();
         return view('admin.images.add', ['category' => $category]);
@@ -70,18 +88,11 @@ class ImagesController extends AdminController
     //修改
     public function upload(Request $request)
     {
-        $file = $request->file('file');
-        //判断是否上传成功
-        if ($file->isValid()) {
-            $path = Helper::getUploadPath();
-            $img_path = $path . Helper::getGuid() . '.' . $file->getClientOriginalExtension();
-            $res = Storage::put($img_path, file_get_contents($file->getRealPath()));
-            if ($res) {
-                $result = ['imgpath' => $img_path];
-                return response()->json($result);
-            }
+        $result = Helper::upload($request);
+        if ($result['status'] == 1) {
+            return $result;
         }
-        return response('failed', '500');
+        return response(json_encode($result), '500');
     }
 
     //删除

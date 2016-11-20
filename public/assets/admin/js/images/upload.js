@@ -567,7 +567,12 @@
         updateTotalProgress();
 
         uploader.on( 'uploadSuccess', function( file, data ) {
-            console.log(file, data.imgpath);
+            //console.log(file, data.imgpath);
+            if (typeof upload_callback == 'function') {
+                upload_callback(data, file);
+            } else {
+                console.error('请在本页面定义上传成功回调函数:upload_callback()');
+            }
         });
     });
 

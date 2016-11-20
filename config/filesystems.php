@@ -62,8 +62,5 @@ return [
             'bucket' => 'your-bucket',
         ],
 
-    ],
-    'uplaod' => [
-        'path' => '/upload/yyyy/mm/dd/'
-    ],
+    ]
 ];
