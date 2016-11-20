@@ -29,16 +29,13 @@ class ImagesController extends AdminController
             $start = Input::get('start', 0);
             $length = Input::get('length', 10);
             $search = Input::get('search');
-            $DB = DB::table('articles');
+            $DB = DB::table('img_content');
             if (!empty($search['value'])) {
-                $DB->where('articles.title', 'like', '%' . $search['value'] . '%');
+                $DB->where('img_content.title', 'like', '%' . $search['value'] . '%');
             }
             $recordTotal = $DB->count();
             //查询文章及相关标签
-            $articleList = $DB->leftJoin('tags_relations', 'articles.id', '=', 'tags_relations.article_id')
-                ->leftJoin('tags', 'tags.id', '=', 'tags_relations.tag_id')
-                ->groupBy('articles.id')
-                ->select(DB::raw('articles.id, articles.title, articles.view_count,articles.created_at, articles.updated_at,GROUP_CONCAT(tags.`name`) AS tags'))
+            $articleList = $DB->select(['content_id','cate_id','title','need_score','img_url','if_open','click_times'])
                 ->skip($start)
                 ->take($length)
                 ->get();
@@ -86,6 +83,53 @@ class ImagesController extends AdminController
     }
 
     //修改
+    public function edit(Request $request)
+    {
+        $content_id = (int)$request->get('content_id');
+        if ($request->isMethod('post')) {
+            $info = $request->input('info');
+            if ($request->file('img_url')) {
+                $cover_img_info = Helper::upload($request, 'img_url');
+                if ($cover_img_info['status'] == 1) {
+                    $info['img_url'] = $cover_img_info['image_url'];
+                    $info['temp_img_url'] = $cover_img_info['image_url'];
+                } else {
+                    return redirect()->back()->withInput()->withErrors('封面图片上传失败');
+                }
+            }
+            DB::beginTransaction();
+            $img_content_res = ImgContent::create($info);
+            if ($img_content_res) {
+                //添加正文图片
+                $all_images = $request->get('all_images');
+                $all_images_arr = explode(';', $all_images);
+                $data = [];
+                foreach ($all_images_arr as $image) {
+                    $data[] = [
+                        'content_id' => $img_content_res['content_id'],
+                        'img_url' => $image
+                    ];
+                }
+                $res = ImgContentImg::insert($data);
+                if ($res) {
+                    DB::commit();
+                    return redirect()->to('/admin/images/index');
+                }
+            }
+            DB::rollBack();
+            return redirect()->back('/admin/articles/index')->withInput()->withErrors('添加失败');
+        }
+        $img_content = ImgContent::find($content_id);
+        $sub_images = ImgContentImg::where('content_id', $content_id)->get();
+        $category = Category::orderBy('order', 'asc')->get();
+        return view('admin.images.edit', [
+            'img_content' => $img_content,
+            'sub_images' => $sub_images,
+            'category' => $category
+        ]);
+    }
+
+    //上传
     public function upload(Request $request)
     {
         $result = Helper::upload($request);
@@ -98,10 +142,10 @@ class ImagesController extends AdminController
     //删除
     public function delete(Request $request)
     {
-        $id = (int)$request->input('id');
-        if (Article::destroy($id)) {
-            TagsRelation::where('article_id', $id)->delete();
-            return redirect()->to('/admin/articles/index');
+        $id = (int)$request->get('content_id');
+        if (ImgContent::destroy($id)) {
+            ImgContentImg::where('content_id', $id)->delete();
+            return redirect()->to('/admin/images/index');
         } else {
             return redirect()->back();
         }

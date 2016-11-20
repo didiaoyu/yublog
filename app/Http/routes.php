@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'web', 'namespace' => 'Admin'
         //图片管理
         Route::get('/images/index', 'ImagesController@index');
         Route::match(['get', 'post'], '/images/add', 'ImagesController@add');
+        Route::match(['get', 'post'], '/images/edit', 'ImagesController@edit');
         Route::match(['get', 'post'], '/images/upload', 'ImagesController@upload');
         Route::get('/images/delete', 'ImagesController@delete');
     });

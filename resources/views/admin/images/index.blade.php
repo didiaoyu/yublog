@@ -2,6 +2,12 @@
 
 @section('page_css')
     <link href="/assets/vendor/css/dataTables.bootstrap.css" rel="stylesheet" />
+    <style type="text/css">
+        .cover_image img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 @stop
 
 @section("content")
@@ -56,5 +62,5 @@
     <script src="/assets/vendor/js/datatable/dataTables.bootstrap.min.js"></script>
     <script src="/assets/admin/js/common/dataTable.init.js"></script>
 
-    <script src="/assets/admin/js/articles/index.js"></script>
+    <script src="/assets/admin/js/images/index.js"></script>
 @stop
