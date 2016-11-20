@@ -7,6 +7,6 @@
  */
 return [
     'image_host' => 'http://imgcms.dev',
-    'uplaod_dir' => '/upload/yyyy/mm/dd/',
+    'upload_dir' => '/upload/yyyy/mm/dd/',
     'allow_image_ext' => ['jpg', 'jpeg', 'gif', 'png', 'bmp']
 ];

@@ -127,7 +127,7 @@
     {{--百度uploader--}}
     <script src="/assets/vendor/webuploader/webuploader.min.js"></script>
     {{--初始化上传控件--}}
-    <script src="/assets/admin/js/images/upload.js" charset="UTF-8"></script>
+    <script src="/assets/vendor/webuploader/upload.js" charset="UTF-8"></script>
 
     <script type="text/javascript">
         //--Bootstrap Date Picker--

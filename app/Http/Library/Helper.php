@@ -20,7 +20,7 @@ class Helper
     //格式化路径
     public static function getUploadPath()
     {
-        $path = config('uplaod.uplaod_dir');
+        $path = config('upload.upload_dir');
         $path = str_replace('yyyy', date('Y'), $path);
         $path = str_replace('mm', date('m'), $path);
         $path = str_replace('dd', date('d'), $path);
