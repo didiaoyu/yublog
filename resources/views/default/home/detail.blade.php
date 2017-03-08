@@ -17,7 +17,7 @@
 @stop
 
 @section("page_script")
-    <script src="/assets/vendor/ueditor/ueditor.parse.js"></script>
+    {{--<script src="/assets/vendor/ueditor/ueditor.parse.js"></script>--}}
     <script type="text/javascript">
         uParse('#docs-content', {
             rootPath: '/assets/vendor/ueditor/'
