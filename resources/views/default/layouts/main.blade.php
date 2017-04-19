@@ -6,11 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('blog.name') }}</title>
-
-    <meta name="description" content="{{ config('blog.description') }}">
-    <meta name="keywords" content="{{ config('blog.keywords') }}">
-    <meta name="author" content="{{ config('blog.name') }}">
+    @yield('seo_content')
     {{--<link rel="icon" href="favicon.ico">--}}
 
     <!-- Bootstrap core CSS -->

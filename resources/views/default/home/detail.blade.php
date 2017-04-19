@@ -1,5 +1,12 @@
 @extends("default.layouts.main")
 
+@section('seo_content')
+    <title>{{ $title }}_{{ config('blog.name') }}_yublog.cc</title>
+    <meta name="description" content="{{ $title }},{{ config('blog.description') }}">
+    <meta name="keywords" content="{{ config('blog.keywords') }}">
+    <meta name="author" content="{{ config('blog.name') }}">
+@endsection
+
 @section("contents")
 <!-- Jumbotron -->
 <header class="jumbotron">
