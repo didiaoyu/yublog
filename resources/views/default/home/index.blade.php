@@ -4,7 +4,7 @@
     <!-- Jumbotron -->
     <header class="jumbotron costomheader">
         <h1><span class="text-hide">Yu'Blog<span><img class="logo" src="/assets/frontend/images/logo.png"></span></span></h1>
-        <p class="lead">不积跬步无以至千里 &nbsp;每天学习一点点 每天进步一点点</p>
+        <p class="lead">从零开始 &nbsp;重新出发</p>
     </header>
     <section class="container content">
         <div class="columns col-md-12">
