@@ -27,7 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         //文章
-        $articles = Article::where('is_published', '1')->paginate(config('blog.page_size'));
+        $articles = Article::where('is_published', '1')
+            ->orderBy('published_at', 'desc')
+            ->paginate(config('blog.page_size'));
 
         //标签
         $tags = Tag::limit(30)->orderBy('created_at', 'desc')->get()->toArray();
