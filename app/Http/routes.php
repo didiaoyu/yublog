@@ -15,7 +15,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/detail/{id}', 'HomeController@detail');
 Route::get('/tag/{id}', 'HomeController@tag');
 Route::get('/category/{alias}', 'HomeController@category');
-Route::post('/getParkingInfo', 'TestController@getParkingInfo');
+Route::match(['get', 'post'], '/getParkingInfo', 'TestController@getParkingInfo');
 
 /*
 |--------------------------------------------------------------------------
