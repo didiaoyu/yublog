@@ -5,10 +5,8 @@
  * Date: 2017/4/21
  * Time: 下午4:29
  */
-if (!empty($_POST)) {
-    echo 'post';
-} elseif (!empty($_GET)) {
-    echo 'get';
+if (isset($_SERVER['REQUEST_METHOD'])) {
+    echo $_SERVER['REQUEST_METHOD'];
 } else {
     echo 'unknow method';
 }
